@@ -10,5 +10,7 @@ opkg install curl
 5. 添加定时任务
 crontab -e进入编辑界面
 将下面两行放到文件中
+```
 */1 * * * * /bin/sh /etc/connect/autoconnect.sh
 0 19 * * 1 echo '' > /etc/connect/connection.log
+```
