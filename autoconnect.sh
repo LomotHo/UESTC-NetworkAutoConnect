@@ -15,7 +15,7 @@ else
             echo [`date`] ok3  >> /etc/connect/connection.log
         else  
             echo [`date`] connecting...  >> /etc/connect/connection.log
-            /bin/sh /etc/connect/connect-dx.sh
+            /bin/sh /etc/connect/connect.sh
         fi  
     fi    
 fi  
