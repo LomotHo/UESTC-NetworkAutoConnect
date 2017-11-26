@@ -6,7 +6,9 @@ echo "installing UESTC-NetworkAutoConnect"
 if [ ! -d "/etc/connect" ]; then
   mkdir /etc/connect
 fi
-cp ./* /etc/connect
+cp ./autoconnect.sh /etc/connect
+cp ./connect.sh /etc/connect
+cp ./connection.log /etc/connect
 chmod +x /etc/connect/*
 # 
 # add task to crontab

@@ -8,8 +8,9 @@ if [ ! -d "/etc/connect" ]; then
 else
 	echo "0"
 fi
-#
-cp ./* /etc/connect
+cp ./autoconnect.sh /etc/connect
+cp ./connect.sh /etc/connect
+cp ./connection.log /etc/connect
 chmod +x /etc/connect/*
 #
 # add task to crontab
