@@ -6,21 +6,24 @@
 
 ### openwrt
 1. 安装curl
-```
+```bash
 opkg install curl
 ```
 2. 自动安装脚本
-```
+```bash
 ./install.sh
 ```
 3. 用chrome抓取登录的http包转换为curl格式, 将抓取到的数据放到/etc/connect/connect.sh中
 
 ### 小米路由器
 1. 自带curl
-2. ./install-for-xiaomi.sh
+2. 自动安装脚本
+```bash
+./install-for-xiaomi.sh
+```
 3. 用chrome抓取登录的http包转换为curl格式, 将抓取到的数据放到/etc/connect/connect.sh中
 
 ## 卸载
-```
+```bash
 ./uninstall.sh
 ```
