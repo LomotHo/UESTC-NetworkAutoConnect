@@ -34,7 +34,7 @@ opkg install curl
 ```bash
 ./install-for-xiaomi.sh
 ```
-3. 用chrome抓取登录的http包转换为curl格式, 将抓取到的数据放到/etc/connect/connect.sh中
+3. 用chrome抓取登录的http包转换为curl格式, 将抓取到的数据放到/etc/connect/connect.sh中，方法同openwrt的第三步
 
 ## 卸载
 ```bash
