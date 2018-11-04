@@ -8,7 +8,7 @@ if [ ! -d "/etc/connect" ]; then
 fi
 cp ./autoconnect.sh /etc/connect
 cp ./connect.sh /etc/connect
-cp ./connection.log /etc/connect
+cp ./connection.log /var
 chmod +x /etc/connect/*
 # 
 # add task to crontab
