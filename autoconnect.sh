@@ -2,22 +2,25 @@
 #
 # test net connection
 # TEST_HOST=114.114.114.114
-TEST_HOST=www.baidu.com
-curl --connect-timeout 5 -m 10 $TEST_HOST > /dev/null 2>&1  
-if [ $? -eq 0 ];then  
-    echo [`date`] ok1 >> /var/connection.log
+TEST_HOST=baidu.com
+LOG_PATH=/var/connection.log
+OK_CODE=200
+
+RESULT=`curl -I --connect-timeout 5 -m 10 -o /dev/null -s -w %{http_code} $TEST_HOST`
+if [ $RESULT -eq $OK_CODE ];then  
+    echo [`date`] ok1 >> $LOG_PATH
 else  
-    echo [`date`] bad net1 >> /var/connection.log
-    curl --connect-timeout 5 -m 10 $TEST_HOST > /dev/null 2>&1
-    if [ $? -eq 0 ];then  
-        echo [`date`] ok2  >> /var/connection.log
+    echo [`date`] bad net1 >> $LOG_PATH
+    RESULT=`curl -I --connect-timeout 5 -m 10 -o /dev/null -s -w %{http_code} $TEST_HOST`
+    if [ $RESULT -eq $OK_CODE ];then  
+        echo [`date`] ok2  >> $LOG_PATH
     else  
-        echo [`date`] bad net2  >> /var/connection.log
-        curl --connect-timeout 5 -m 10 $TEST_HOST > /dev/null 2>&1
-        if [ $? -eq 0 ];then  
-            echo [`date`] ok3  >> /var/connection.log
+        echo [`date`] bad net2  >> $LOG_PATH
+        RESULT=`curl -I --connect-timeout 5 -m 10 -o /dev/null -s -w %{http_code} $TEST_HOST`
+        if [ $RESULT -eq $OK_CODE ];then  
+            echo [`date`] ok3  >> $LOG_PATH
         else  
-            echo [`date`] connecting...  >> /var/connection.log
+            echo [`date`] connecting...  >> $LOG_PATH
             /bin/sh /etc/connect/connect.sh
         fi  
     fi    
